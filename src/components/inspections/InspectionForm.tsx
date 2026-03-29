@@ -504,8 +504,10 @@ export function InspectionForm({ inspection, samplesFromDb }: Props) {
               type="number"
               min={0}
               max={500}
+
               className="rounded-md border border-gray-300 bg-white px-3 py-2 text-black disabled:opacity-60 focus:ring-2 focus:ring-red-500"
-              value={cantidad_muestras}
+              value={cantidad_muestras === 0 ? "" : cantidad_muestras}
+
               onChange={(e) => onCantidadChange(Number(e.target.value))}
               disabled={locked}
             />
