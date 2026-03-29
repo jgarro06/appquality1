@@ -111,7 +111,7 @@ export function InspectionForm({ inspection, samplesFromDb }: Props) {
     inspection?.temperaturas ?? "",
   );
   const [cantidad_muestras, setCantidadMuestras] = useState(
-    inspection?.cantidad_muestras ?? 1,
+    inspection?.cantidad_muestras ?? 0,
   );
   const [instrumento, setInstrumento] = useState(inspection?.instrumento ?? "");
   const [fecha_calibracion, setFechaCalibracion] = useState(
@@ -258,7 +258,7 @@ export function InspectionForm({ inspection, samplesFromDb }: Props) {
   };
 
   const onCantidadChange = (raw: number) => {
-    const n = Math.max(1, Math.min(500, raw || 1));
+    const n = Math.max(0, Math.min(500, isNaN(raw) ? 0 : raw));
     setCantidadMuestras(n);
     if (!locked) syncRowsToCantidad(n, tipo);
   };
@@ -504,8 +504,10 @@ export function InspectionForm({ inspection, samplesFromDb }: Props) {
               type="number"
               min={0}
               max={500}
-              className="rounded-md border border-gray-300 bg-white px-3 py-2 text-black disabled:opacity-60 focus:ring-2 focus:ring-red-500"
-              value={cantidad_muestras}
+
+              className="rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 disabled:opacity-60 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
+              value={cantidad_muestras === 0 ? "" : cantidad_muestras}
+
               onChange={(e) => onCantidadChange(Number(e.target.value))}
               disabled={locked}
             />
