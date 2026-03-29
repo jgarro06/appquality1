@@ -24,23 +24,23 @@ export function InspectionSamplesTable({
   setSamplesMP,
 }: Props) {
   return (
-    <section className="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
+    <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
       <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
         <div>
           <h2 className="text-lg font-medium">Muestras</h2>
-          <p className="text-sm text-zinc-500">
+          <p className="text-sm text-gray-600">
             Máximo {cantidadMuestras} filas. Los cambios se guardan en Supabase al
-            pulsar <strong className="text-zinc-700 dark:text-zinc-300">Guardar borrador</strong>{" "}
-            o <strong className="text-zinc-700 dark:text-zinc-300">Finalizar inspección</strong>.
+            pulsar <strong className="text-gray-700">Guardar borrador</strong>{" "}
+            o <strong className="text-gray-700">Finalizar inspección</strong>.
           </p>
         </div>
       </div>
 
       {tipo === "PT" ? (
-        <div className="overflow-x-auto rounded-lg border border-zinc-100 dark:border-zinc-900">
+        <div className="overflow-x-auto rounded-lg border border-gray-100">
           <table className="min-w-full border-collapse text-sm">
             <thead>
-              <tr className="border-b border-zinc-200 bg-zinc-50 text-left dark:border-zinc-800 dark:bg-zinc-900/50">
+              <tr className="border-b border-gray-200 bg-gray-100 text-left">
                 <th className="px-3 py-2.5 font-medium">Nº</th>
                 <th className="px-3 py-2.5 font-medium">Nº placa</th>
                 {[1, 2, 3, 4, 5, 6, 7].map((n) => (
@@ -55,12 +55,12 @@ export function InspectionSamplesTable({
               {samplesPT.map((row, idx) => (
                 <tr
                   key={row.numero}
-                  className="border-b border-zinc-100 last:border-0 dark:border-zinc-900"
+                  className="border-b border-gray-100 last:border-0"
                 >
-                  <td className="px-3 py-2 font-mono text-zinc-600">{row.numero}</td>
+                  <td className="px-3 py-2 font-mono text-gray-600">{row.numero}</td>
                   <td className="px-3 py-2">
                     <input
-                      className="w-28 rounded-md border border-zinc-300 bg-white px-2 py-1.5 text-zinc-900 outline-none ring-zinc-400 focus:ring-2 disabled:opacity-60 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
+                      className="w-28 rounded-md border border-gray-300 bg-white px-2 py-1.5 text-black outline-none ring-red-500 focus:ring-2 disabled:opacity-60"
                       value={row.placa}
                       onChange={(e) => {
                         const v = e.target.value;
@@ -77,7 +77,7 @@ export function InspectionSamplesTable({
                     <td key={j} className="px-3 py-2">
                       <input
                         inputMode="decimal"
-                        className="w-[4.25rem] rounded-md border border-zinc-300 bg-white px-2 py-1.5 text-zinc-900 outline-none focus:ring-2 focus:ring-zinc-400 disabled:opacity-60 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
+                        className="w-[4.25rem] rounded-md border border-gray-300 bg-white px-2 py-1.5 text-black outline-none focus:ring-2 focus:ring-red-500 disabled:opacity-60"
                         value={cell}
                         onChange={(e) => {
                           const v = e.target.value;
@@ -96,7 +96,7 @@ export function InspectionSamplesTable({
                   <td className="px-3 py-2">
                     <input
                       inputMode="decimal"
-                      className="w-24 rounded-md border border-zinc-300 bg-white px-2 py-1.5 text-zinc-900 outline-none focus:ring-2 focus:ring-zinc-400 disabled:opacity-60 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
+                      className="w-24 rounded-md border border-gray-300 bg-white px-2 py-1.5 text-black outline-none focus:ring-2 focus:ring-red-500 disabled:opacity-60"
                       value={row.litros}
                       onChange={(e) => {
                         const v = e.target.value;
@@ -115,10 +115,10 @@ export function InspectionSamplesTable({
           </table>
         </div>
       ) : (
-        <div className="overflow-x-auto rounded-lg border border-zinc-100 dark:border-zinc-900">
+        <div className="overflow-x-auto rounded-lg border border-gray-100">
           <table className="min-w-full border-collapse text-sm">
             <thead>
-              <tr className="border-b border-zinc-200 bg-zinc-50 text-left dark:border-zinc-800 dark:bg-zinc-900/50">
+              <tr className="border-b border-gray-200 bg-gray-100 text-left">
                 <th className="px-3 py-2.5 font-medium">Nº</th>
                 {["Medida 1", "Medida 2", "Medida 3", "Medida 4"].map((h) => (
                   <th key={h} className="px-3 py-2.5 font-medium">
@@ -131,15 +131,15 @@ export function InspectionSamplesTable({
               {samplesMP.map((row, idx) => (
                 <tr
                   key={row.numero}
-                  className="border-b border-zinc-100 last:border-0 dark:border-zinc-900"
+                  className="border-b border-gray-100 last:border-0"
                 >
-                  <td className="px-3 py-2 font-mono text-zinc-600">{row.numero}</td>
+                  <td className="px-3 py-2 font-mono text-gray-600">{row.numero}</td>
                   {(["medida1", "medida2", "medida3", "medida4"] as const).map(
                     (field) => (
                       <td key={field} className="px-3 py-2">
                         <input
                           inputMode="decimal"
-                          className="w-28 rounded-md border border-zinc-300 bg-white px-2 py-1.5 text-zinc-900 outline-none focus:ring-2 focus:ring-zinc-400 disabled:opacity-60 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
+                          className="w-28 rounded-md border border-gray-300 bg-white px-2 py-1.5 text-black outline-none focus:ring-2 focus:ring-red-500 disabled:opacity-60"
                           value={row[field]}
                           onChange={(e) => {
                             const v = e.target.value;

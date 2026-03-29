@@ -345,77 +345,77 @@ export function InspectionForm({ inspection, samplesFromDb }: Props) {
           <h1 className="text-2xl font-semibold tracking-tight">
             {isEdit ? "Inspección" : "Nueva inspección"}
           </h1>
-          <p className="text-sm text-zinc-500">
+          <p className="text-sm text-gray-600">
             Consecutivo{" "}
             {isEdit ? "" : "(se asigna al guardar): "}
-            <span className="font-mono text-zinc-800 dark:text-zinc-200">
+            <span className="font-mono text-gray-800">
               {consecutivoPreview ?? "—"}
             </span>
           </p>
         </div>
         <Link
           href="/inspecciones"
-          className="text-sm font-medium text-zinc-600 underline-offset-4 hover:underline dark:text-zinc-400"
+          className="text-sm font-medium text-red-600 underline-offset-4 hover:text-red-700 hover:underline"
         >
           Volver al listado
         </Link>
       </div>
 
       {locked && (
-        <div className="rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900 dark:border-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-100">
+        <div className="rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-900">
           Esta inspección está completada y no se puede editar.
         </div>
       )}
 
       {message && (
-        <div className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-950 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-100">
+        <div className="rounded-lg border border-yellow-200 bg-yellow-50 px-4 py-3 text-sm text-yellow-900">
           {message}
         </div>
       )}
 
-      <section className="grid gap-6 rounded-xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
+      <section className="grid gap-6 rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
         <h2 className="text-lg font-medium">Información general</h2>
         <div className="grid gap-4 sm:grid-cols-2">
           <label className="flex flex-col gap-1 text-sm">
-            <span className="font-medium text-zinc-700 dark:text-zinc-300">
+            <span className="font-medium text-gray-700">
               OP
             </span>
             <input
-              className="rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 disabled:opacity-60 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
+              className="rounded-md border border-gray-300 bg-white px-3 py-2 text-black disabled:opacity-60 focus:ring-2 focus:ring-red-500"
               value={op}
               onChange={(e) => setOp(e.target.value)}
               disabled={locked}
             />
           </label>
           <label className="flex flex-col gap-1 text-sm">
-            <span className="font-medium text-zinc-700 dark:text-zinc-300">
+            <span className="font-medium text-gray-700">
               Fecha
             </span>
             <input
               type="date"
-              className="rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 disabled:opacity-60 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
+              className="rounded-md border border-gray-300 bg-white px-3 py-2 text-black disabled:opacity-60 focus:ring-2 focus:ring-red-500"
               value={fecha}
               onChange={(e) => setFecha(e.target.value)}
               disabled={locked}
             />
           </label>
           <label className="flex flex-col gap-1 text-sm">
-            <span className="font-medium text-zinc-700 dark:text-zinc-300">
+            <span className="font-medium text-gray-700">
               Inspector
             </span>
             <input
-              className="rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 disabled:opacity-60 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
+              className="rounded-md border border-gray-300 bg-white px-3 py-2 text-black disabled:opacity-60 focus:ring-2 focus:ring-red-500"
               value={inspector}
               onChange={(e) => setInspector(e.target.value)}
               disabled={locked}
             />
           </label>
           <label className="flex flex-col gap-1 text-sm">
-            <span className="font-medium text-zinc-700 dark:text-zinc-300">
+            <span className="font-medium text-gray-700">
               Tipo
             </span>
             <select
-              className="rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 disabled:opacity-60 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
+              className="rounded-md border border-gray-300 bg-white px-3 py-2 text-black disabled:opacity-60 focus:ring-2 focus:ring-red-500"
               value={tipo}
               onChange={(e) => onTipoChange(e.target.value as InspectionTipo)}
               disabled={locked || isEdit}
@@ -424,7 +424,7 @@ export function InspectionForm({ inspection, samplesFromDb }: Props) {
               <option value="MP">Materia prima (MP)</option>
             </select>
             {isEdit && (
-              <span className="text-xs text-zinc-500">
+              <span className="text-xs text-gray-600">
                 El tipo no se puede cambiar en una inspección existente.
               </span>
             )}
@@ -433,12 +433,12 @@ export function InspectionForm({ inspection, samplesFromDb }: Props) {
 
         <div className="grid gap-4 sm:grid-cols-2">
           <label className="flex flex-col gap-1 text-sm">
-            <span className="font-medium text-zinc-700 dark:text-zinc-300">
+            <span className="font-medium text-gray-700">
               Código de producto
             </span>
             <div className="flex gap-2">
               <input
-                className="min-w-0 flex-1 rounded-md border border-zinc-300 bg-white px-3 py-2 font-mono text-zinc-900 disabled:opacity-60 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
+                className="min-w-0 flex-1 rounded-md border border-gray-300 bg-white px-3 py-2 font-mono text-black disabled:opacity-60 focus:ring-2 focus:ring-red-500"
                 value={producto}
                 onChange={(e) => setProducto(e.target.value)}
                 disabled={locked}
@@ -446,7 +446,7 @@ export function InspectionForm({ inspection, samplesFromDb }: Props) {
               />
               <button
                 type="button"
-                className="shrink-0 rounded-md border border-zinc-300 px-3 py-2 text-sm font-medium hover:bg-zinc-50 disabled:opacity-50 dark:border-zinc-700 dark:hover:bg-zinc-900"
+                className="shrink-0 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-black hover:bg-gray-50 disabled:opacity-50"
                 onClick={onLookupProduct}
                 disabled={locked}
               >
@@ -455,16 +455,16 @@ export function InspectionForm({ inspection, samplesFromDb }: Props) {
             </div>
           </label>
           <label className="flex flex-col gap-1 text-sm">
-            <span className="flex items-center gap-2 font-medium text-zinc-700 dark:text-zinc-300">
+            <span className="flex items-center gap-2 font-medium text-gray-700">
               Descripción
               {productLookupLoading && (
-                <span className="text-xs font-normal text-zinc-400">
+                <span className="text-xs font-normal text-gray-500">
                   Buscando en catálogo…
                 </span>
               )}
             </span>
             <input
-              className="rounded-md border border-zinc-200 bg-zinc-50 px-3 py-2 text-zinc-800 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200"
+              className="rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-800"
               value={descripcion}
               readOnly
               placeholder="Se autocompleta al escribir el código (mín. 2 caracteres)"
@@ -474,22 +474,22 @@ export function InspectionForm({ inspection, samplesFromDb }: Props) {
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <label className="flex flex-col gap-1 text-sm">
-            <span className="font-medium text-zinc-700 dark:text-zinc-300">
+            <span className="font-medium text-gray-700">
               kW
             </span>
             <input
-              className="rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 disabled:opacity-60 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
+              className="rounded-md border border-gray-300 bg-white px-3 py-2 text-black disabled:opacity-60 focus:ring-2 focus:ring-red-500"
               value={kw}
               onChange={(e) => setKw(e.target.value)}
               disabled={locked}
             />
           </label>
           <label className="flex flex-col gap-1 text-sm sm:col-span-2">
-            <span className="font-medium text-zinc-700 dark:text-zinc-300">
+            <span className="font-medium text-gray-700">
               Temperaturas
             </span>
             <input
-              className="rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 disabled:opacity-60 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
+              className="rounded-md border border-gray-300 bg-white px-3 py-2 text-black disabled:opacity-60 focus:ring-2 focus:ring-red-500"
               value={temperaturas}
               onChange={(e) => setTemperaturas(e.target.value)}
               disabled={locked}
@@ -497,37 +497,39 @@ export function InspectionForm({ inspection, samplesFromDb }: Props) {
             />
           </label>
           <label className="flex flex-col gap-1 text-sm">
-            <span className="font-medium text-zinc-700 dark:text-zinc-300">
+            <span className="font-medium text-gray-700">
               Cantidad de muestras
             </span>
             <input
               type="number"
               min={0}
               max={500}
+
               className="rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 disabled:opacity-60 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
               value={cantidad_muestras === 0 ? "" : cantidad_muestras}
+
               onChange={(e) => onCantidadChange(Number(e.target.value))}
               disabled={locked}
             />
           </label>
           <label className="flex flex-col gap-1 text-sm">
-            <span className="font-medium text-zinc-700 dark:text-zinc-300">
+            <span className="font-medium text-gray-700">
               Instrumento
             </span>
             <input
-              className="rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 disabled:opacity-60 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
+              className="rounded-md border border-gray-300 bg-white px-3 py-2 text-black disabled:opacity-60 focus:ring-2 focus:ring-red-500"
               value={instrumento}
               onChange={(e) => setInstrumento(e.target.value)}
               disabled={locked}
             />
           </label>
           <label className="flex flex-col gap-1 text-sm">
-            <span className="font-medium text-zinc-700 dark:text-zinc-300">
+            <span className="font-medium text-gray-700">
               Fecha calibración
             </span>
             <input
               type="date"
-              className="rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 disabled:opacity-60 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
+              className="rounded-md border border-gray-300 bg-white px-3 py-2 text-black disabled:opacity-60 focus:ring-2 focus:ring-red-500"
               value={fecha_calibracion}
               onChange={(e) => setFechaCalibracion(e.target.value)}
               disabled={locked}
@@ -553,7 +555,7 @@ export function InspectionForm({ inspection, samplesFromDb }: Props) {
             type="button"
             disabled={pending}
             onClick={onSaveDraft}
-            className="rounded-lg bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-zinc-800 disabled:opacity-50 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
+            className="rounded-lg bg-red-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-red-700 disabled:opacity-50"
           >
             Guardar borrador
           </button>
@@ -566,12 +568,12 @@ export function InspectionForm({ inspection, samplesFromDb }: Props) {
                 : undefined
             }
             onClick={onFinalize}
-            className="rounded-lg border border-emerald-700 bg-emerald-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-emerald-500 disabled:opacity-50"
+            className="rounded-lg border border-green-700 bg-green-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-green-500 disabled:opacity-50"
           >
             Finalizar inspección
           </button>
           </div>
-          <p className="text-xs text-zinc-500">
+          <p className="text-xs text-gray-600">
             <strong>Guardar borrador</strong> persiste la inspección y las muestras en Supabase con
             estado &quot;En proceso&quot;. <strong>Finalizar</strong> exige todas las muestras
             completas y marca &quot;Completado&quot;.
