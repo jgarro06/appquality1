@@ -505,7 +505,7 @@ export function InspectionForm({ inspection, samplesFromDb }: Props) {
               min={0}
               max={500}
               className="rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 disabled:opacity-60 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
-              value={cantidad_muestras}
+              value={cantidad_muestras ?? ""}
               onChange={(e) => onCantidadChange(Number(e.target.value))}
               disabled={locked}
             />
