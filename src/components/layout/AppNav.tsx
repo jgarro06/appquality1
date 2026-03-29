@@ -25,7 +25,19 @@ export function AppNav() {
             className="text-gray-600 hover:text-red-600 transition-colors"
             href="/inspecciones"
           >
-            Dashboard
+            Inspecciones
+          </Link>
+          <Link
+            className="text-gray-600 hover:text-red-600 transition-colors"
+            href="/materia-prima"
+          >
+            Materia Prima
+          </Link>
+          <Link
+            className="text-gray-600 hover:text-red-600 transition-colors"
+            href="/proveedores"
+          >
+            Proveedores
           </Link>
           <Link
             className="text-gray-600 hover:text-red-600 transition-colors"
