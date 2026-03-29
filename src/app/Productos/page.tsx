@@ -66,44 +66,44 @@ export default function Productos() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 flex flex-col items-center">
-  <h1 className="text-2xl font-bold text-white mb-6">Productos</h1>
-  <div className="bg-zinc-800 w-full max-w-3xl p-6 rounded-lg shadow-lg mb-8">
-  <h2 className="text-lg font-semibold text-white mb-4">Agregar / Editar Producto</h2>
+  <h1 className="text-2xl font-bold text-black mb-6">Productos</h1>
+  <div className="bg-white border border-gray-200 w-full max-w-3xl p-6 rounded-lg shadow-sm mb-8">
+  <h2 className="text-lg font-semibold text-black mb-4">Agregar / Editar Producto</h2>
   <div className="flex gap-4">
     <input
       type="text"
       placeholder="Código"
       value={codigo}
       onChange={(e) => setCodigo(e.target.value)}
-      className="bg-zinc-700 text-white px-3 py-2 rounded w-40 focus:outline-none focus:ring-2 focus:ring-white"
+      className="bg-white border border-gray-300 text-black px-3 py-2 rounded w-40 focus:outline-none focus:ring-2 focus:ring-red-500"
     />
     <input
       type="text"
       placeholder="Descripción"
       value={descripcion}
       onChange={(e) => setDescripcion(e.target.value)}
-      className="bg-zinc-700 text-white px-3 py-2 rounded w-60 focus:outline-none focus:ring-2 focus:ring-green-500"
+      className="bg-white border border-gray-300 text-black px-3 py-2 rounded w-60 focus:outline-none focus:ring-2 focus:ring-red-500"
     />
     {editando ? (
       <button
         onClick={editarProducto}
-        className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white font-semibold"
+        className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded text-white font-semibold transition-colors"
       >
         Actualizar
       </button>
     ) : (
       <button
         onClick={agregarProducto}
-        className="bg-green-600 hover:bg-green-700 px-4 py-2 rounded text-white font-semibold"
+        className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded text-white font-semibold transition-colors"
       >
         Agregar
       </button>
     )}
   </div>
 </div>
-<div className="overflow-x-auto rounded-xl border border-zinc-200 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-950 w-3xl">
+<div className="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm w-3xl">
   <table className="min-w-full text-left text-sm">
-    <thead className="border-b border-zinc-200 bg-zinc-50 text-xs font-semibold uppercase tracking-wide text-zinc-600 dark:border-zinc-800 dark:bg-zinc-900/50 dark:text-zinc-400">
+    <thead className="border-b border-gray-200 bg-gray-100 text-xs font-semibold uppercase tracking-wide text-gray-600">
       <tr>
         <th className="px-4 py-2 text-center">Código</th>
         <th className="px-4 py-2 text-center">Descripción</th>
@@ -112,9 +112,9 @@ export default function Productos() {
     </thead>
     <tbody>
       {productos.map((p) => (
-        <tr key={p.id} className="border-b border-zinc-100 transition-colors last:border-0 hover:bg-zinc-50/80 dark:border-zinc-900 dark:hover:bg-zinc-900/40">
-          <td className="px-4 py-2 text-center">{p.codigo}</td>
-          <td className="px-4 py-2 text-center">{p.descripcion}</td>
+        <tr key={p.id} className="border-b border-gray-100 transition-colors last:border-0 hover:bg-gray-50">
+          <td className="px-4 py-2 text-center text-black">{p.codigo}</td>
+          <td className="px-4 py-2 text-center text-black">{p.descripcion}</td>
           <td className="px-4 py-2 text-center flex justify-center gap-2">
             <button
               onClick={() => {
@@ -122,11 +122,16 @@ export default function Productos() {
                 setDescripcion(p.descripcion);
                 setEditando(p.id);
               }}
-              className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white font-semibold"
+              className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded text-white font-semibold transition-colors"
             >
               Editar
             </button>
-           
+            <button
+              onClick={() => eliminarProducto(p.id)}
+              className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded text-white font-semibold transition-colors"
+            >
+              Eliminar
+            </button>
           </td>
         </tr>
       ))}
