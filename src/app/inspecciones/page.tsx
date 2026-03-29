@@ -167,12 +167,13 @@ export default async function InspeccionesPage({ searchParams }: Props) {
         <table className="min-w-full text-left text-sm">
           <thead className="border-b border-zinc-200 bg-zinc-50 text-xs font-semibold uppercase tracking-wide text-zinc-600 dark:border-zinc-800 dark:bg-zinc-900/50 dark:text-zinc-400">
             <tr>
-              <th className="px-4 py-3">Consecutivo</th>
-              <th className="px-4 py-3">Fecha</th>
-              <th className="px-4 py-3">Inspector</th>
-              <th className="px-4 py-3">Tipo</th>
-              <th className="px-4 py-3">Producto</th>
-              <th className="px-4 py-3">Estado</th>
+              <th className="px-4 py-3 text-center">Consecutivo</th>
+              <th className="px-4 py-3 text-center">Fecha</th>
+              <th className="px-4 py-3 text-center">Inspector</th>
+              <th className="px-4 py-3 text-center">Tipo</th>
+              <th className="px-4 py-3 text-center">Producto</th>
+              <th className="px-4 py-3 text-center">Estado</th>
+              <th className="px-4 py-3 text-center">Número de OP</th>
               <th className="px-4 py-3" />
             </tr>
           </thead>
@@ -192,15 +193,15 @@ export default async function InspeccionesPage({ searchParams }: Props) {
                   key={row.id}
                   className="border-b border-zinc-100 transition-colors last:border-0 hover:bg-zinc-50/80 dark:border-zinc-900 dark:hover:bg-zinc-900/40"
                 >
-                  <td className="px-4 py-3 font-mono text-xs font-medium">
+                  <td className="px-4 py-3 text-center font-mono text-xs font-medium">
                     {row.consecutivo}
                   </td>
-                  <td className="px-4 py-3 text-zinc-700 dark:text-zinc-300">
+                  <td className="px-4 py-3 text-center text-zinc-700 dark:text-zinc-300">
                     {String(row.fecha).slice(0, 10)}
                   </td>
-                  <td className="px-4 py-3">{row.inspector}</td>
-                  <td className="px-4 py-3 font-mono">{row.tipo}</td>
-                  <td className="px-4 py-3">
+                  <td className="px-4 py-3 text-center">{row.inspector}</td>
+                  <td className="px-4 py-3 text-center font-mono">{row.tipo}</td>
+                  <td className="px-4 py-3 text-center">
                     <div className="font-mono text-xs">{row.producto}</div>
                     {row.descripcion && (
                       <div className="max-w-xs truncate text-xs text-zinc-500">
@@ -208,12 +209,13 @@ export default async function InspeccionesPage({ searchParams }: Props) {
                       </div>
                     )}
                   </td>
-                  <td className="px-4 py-3">
+                  <td className="px-4 py-3 text-center">
                     <span className={badgeEstado(row.estado)}>
                       {row.estado}
                     </span>
                   </td>
-                  <td className="px-4 py-3 text-right">
+                  <td className="px-4 py-3 text-center">{row.op}</td>
+                  <td className="px-4 py-3 text-center">
                     <Link
                       href={`/inspecciones/${row.id}`}
                       className="font-medium text-zinc-900 underline-offset-4 hover:underline dark:text-zinc-100"
