@@ -1,5 +1,6 @@
 import { fetchInspectionsForList } from "@/lib/data/inspections";
 import type { InspectionEstado, InspectionTipo } from "@/types/inspections";
+import { InspectionActions } from "@/components/inspections/InspectionActions";
 import Link from "next/link";
 
 type Props = {
@@ -174,14 +175,14 @@ export default async function InspeccionesPage({ searchParams }: Props) {
               <th className="px-4 py-3 text-center">Producto</th>
               <th className="px-4 py-3 text-center">Estado</th>
               <th className="px-4 py-3 text-center">Número de OP</th>
-              <th className="px-4 py-3" />
+              <th className="px-4 py-3 text-center">Acciones</th>
             </tr>
           </thead>
           <tbody>
             {rows.length === 0 ? (
               <tr>
                 <td
-                  colSpan={7}
+                  colSpan={8}
                   className="px-4 py-10 text-center text-gray-500"
                 >
                   No hay inspecciones con estos criterios.
@@ -216,12 +217,10 @@ export default async function InspeccionesPage({ searchParams }: Props) {
                   </td>
                   <td className="px-4 py-3 text-center text-black">{row.op}</td>
                   <td className="px-4 py-3 text-center">
-                    <Link
-                      href={`/inspecciones/${row.id}`}
-                      className="font-medium text-red-600 underline-offset-4 hover:text-red-700 hover:underline"
-                    >
-                      Abrir
-                    </Link>
+                    <InspectionActions
+                      inspectionId={row.id}
+                      estado={row.estado}
+                    />
                   </td>
                 </tr>
               ))
