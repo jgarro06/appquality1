@@ -258,7 +258,7 @@ export function InspectionForm({ inspection, samplesFromDb }: Props) {
   };
 
   const onCantidadChange = (raw: number) => {
-    const n = Math.max(1, Math.min(500, raw || 1));
+    const n = Math.max(0, Math.min(500, raw ?? 0));
     setCantidadMuestras(n);
     if (!locked) syncRowsToCantidad(n, tipo);
   };
